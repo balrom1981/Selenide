@@ -7,11 +7,11 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class CallBackTest {
+class CallBackTest {
     @Test
     void shouldSubmitRequest() {
         open("http://localhost:9999");
-        SelenideElement form = $("[data-test-id=callback-form]");
+        SelenideElement form = $("[data-test-id]");
         form.$("[data-test-id=name] input").setValue("Василий");
         form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$("[data-test-id=agreement]").click();
