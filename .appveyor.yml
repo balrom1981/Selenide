@@ -1,4 +1,4 @@
-image: Visual Studio 2015  # образ для сборки
+image: Ubuntu  # образ для сборки
 
 stack: jdk 11  # версия JDK
 
@@ -15,3 +15,6 @@ install:
 
 build_script:
   - ./gradlew test --info  # запускаем тест, флаг --info позволяет выводить больше информации
+
+test:
+  - gradlew test -Dselenide.headless=true
