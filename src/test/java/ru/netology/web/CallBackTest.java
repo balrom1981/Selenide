@@ -2,9 +2,13 @@ package ru.netology.web;
 
 
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.support.Color;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -47,6 +51,9 @@ class CallBackTest {
         $("[data-test-id=phone] input").setValue("+79270000000");
 //        $("[data-test-id=agreement]").click();
         $("[type=button]").click();
-        $("[.input_invalid").shouldHave(exactText("color: #ff5c5c!important"));
+        String actual = $(".input_invalid").getCssValue("color");
+        String expected = "#ff5c5c";
+        org.junit.jupiter.api.Assertions.assertEquals(actual, Color.fromString(expected).asRgba());
+
     }
 }
